@@ -14,6 +14,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedManagerRouteImport } from './routes/_authenticated/manager'
+import { Route as AuthenticatedCorporateRouteImport } from './routes/_authenticated/corporate'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
 
 const EventsRoute = EventsRouteImport.update({
@@ -40,6 +41,11 @@ const AuthenticatedManagerRoute = AuthenticatedManagerRouteImport.update({
   path: '/manager',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedCorporateRoute = AuthenticatedCorporateRouteImport.update({
+  id: '/corporate',
+  path: '/corporate',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedAppRoute = AuthenticatedAppRouteImport.update({
   id: '/app',
   path: '/app',
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/events': typeof EventsRoute
   '/app': typeof AuthenticatedAppRoute
+  '/corporate': typeof AuthenticatedCorporateRoute
   '/manager': typeof AuthenticatedManagerRoute
 }
 export interface FileRoutesByTo {
@@ -58,6 +65,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/events': typeof EventsRoute
   '/app': typeof AuthenticatedAppRoute
+  '/corporate': typeof AuthenticatedCorporateRoute
   '/manager': typeof AuthenticatedManagerRoute
 }
 export interface FileRoutesById {
@@ -67,13 +75,14 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/events': typeof EventsRoute
   '/_authenticated/app': typeof AuthenticatedAppRoute
+  '/_authenticated/corporate': typeof AuthenticatedCorporateRoute
   '/_authenticated/manager': typeof AuthenticatedManagerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/events' | '/app' | '/manager'
+  fullPaths: '/' | '/auth' | '/events' | '/app' | '/corporate' | '/manager'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/events' | '/app' | '/manager'
+  to: '/' | '/auth' | '/events' | '/app' | '/corporate' | '/manager'
   id:
     | '__root__'
     | '/'
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/events'
     | '/_authenticated/app'
+    | '/_authenticated/corporate'
     | '/_authenticated/manager'
   fileRoutesById: FileRoutesById
 }
@@ -128,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedManagerRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/corporate': {
+      id: '/_authenticated/corporate'
+      path: '/corporate'
+      fullPath: '/corporate'
+      preLoaderRoute: typeof AuthenticatedCorporateRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/app': {
       id: '/_authenticated/app'
       path: '/app'
@@ -140,11 +157,13 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAppRoute: typeof AuthenticatedAppRoute
+  AuthenticatedCorporateRoute: typeof AuthenticatedCorporateRoute
   AuthenticatedManagerRoute: typeof AuthenticatedManagerRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAppRoute: AuthenticatedAppRoute,
+  AuthenticatedCorporateRoute: AuthenticatedCorporateRoute,
   AuthenticatedManagerRoute: AuthenticatedManagerRoute,
 }
 

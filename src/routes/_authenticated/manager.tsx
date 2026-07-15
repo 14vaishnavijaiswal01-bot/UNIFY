@@ -5,7 +5,7 @@ import { AppNav } from "@/components/AppNav";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textneighborhood } from "@/components/ui/textneighborhood";
+import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from "@/components/ui/dialog";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
@@ -69,7 +69,7 @@ function ManagerHome() {
               <DialogHeader><DialogTitle>Create a new event</DialogTitle></DialogHeader>
               <div className="space-y-3">
                 <Row label="Title"><Input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} /></Row>
-                <Row label="Description"><Textneighborhood rows={3} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} /></Row>
+                <Row label="Description"><Textarea rows={3} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} /></Row>
                 <div className="grid grid-cols-2 gap-3">
                   <Row label="Cause">
                     <Select value={form.cause} onValueChange={(v) => setForm({ ...form, cause: v })}>
