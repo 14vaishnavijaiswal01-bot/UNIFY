@@ -16,7 +16,7 @@ type Ev = {
   id: string; title: string; description: string | null; cause: string | null;
   starts_at: string; duration_min: number | null; price: number | null;
   cover_emoji: string | null; tags: string[] | null; capacity: number | null;
-  venues?: { name: string; area: string | null } | null;
+  venues?: { name: string; neighborhood: string | null } | null;
 };
 
 function EventsPage() {
@@ -28,7 +28,7 @@ function EventsPage() {
     (async () => {
       const { data } = await supabase
         .from("events")
-        .select("id,title,description,cause,starts_at,duration_min,price,cover_emoji,tags,capacity,venues(name,area)")
+        .select("id,title,description,cause,starts_at,duration_min,price,cover_emoji,tags,capacity,venues(name,neighborhood)")
         .eq("status", "published")
         .order("starts_at", { ascending: true });
       setEvents((data as unknown as Ev[]) ?? []);
@@ -92,7 +92,7 @@ function EventCard({ e }: { e: Ev }) {
       {e.description && <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{e.description}</p>}
       <div className="mt-4 space-y-1.5 text-sm text-foreground/70">
         <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> {format(new Date(e.starts_at), "EEE, MMM d · h:mm a")}</div>
-        {e.venues && <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> {e.venues.name}{e.venues.area ? `, ${e.venues.area}` : ""}</div>}
+        {e.venues && <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> {e.venues.name}{e.venues.neighborhood ? `, ${e.venues.neighborhood}` : ""}</div>}
         {e.capacity && <div className="flex items-center gap-2"><Users className="h-4 w-4" /> Up to {e.capacity}</div>}
       </div>
       <div className="mt-4 flex items-center justify-between">
