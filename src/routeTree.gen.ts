@@ -12,6 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UIndexRouteImport } from './routes/u.index'
+import { Route as UImpactRouteImport } from './routes/u.impact'
+import { Route as UForYouRouteImport } from './routes/u.for-you'
+import { Route as UExploreRouteImport } from './routes/u.explore'
+import { Route as UEventsRouteImport } from './routes/u.events'
+import { Route as UBuddyRouteImport } from './routes/u.buddy'
 
 const JoinRoute = JoinRouteImport.update({
   id: '/join',
@@ -28,34 +33,104 @@ const UIndexRoute = UIndexRouteImport.update({
   path: '/u/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UImpactRoute = UImpactRouteImport.update({
+  id: '/u/impact',
+  path: '/u/impact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UForYouRoute = UForYouRouteImport.update({
+  id: '/u/for-you',
+  path: '/u/for-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UExploreRoute = UExploreRouteImport.update({
+  id: '/u/explore',
+  path: '/u/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UEventsRoute = UEventsRouteImport.update({
+  id: '/u/events',
+  path: '/u/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UBuddyRoute = UBuddyRouteImport.update({
+  id: '/u/buddy',
+  path: '/u/buddy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/join': typeof JoinRoute
+  '/u/buddy': typeof UBuddyRoute
+  '/u/events': typeof UEventsRoute
+  '/u/explore': typeof UExploreRoute
+  '/u/for-you': typeof UForYouRoute
+  '/u/impact': typeof UImpactRoute
   '/u/': typeof UIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/join': typeof JoinRoute
+  '/u/buddy': typeof UBuddyRoute
+  '/u/events': typeof UEventsRoute
+  '/u/explore': typeof UExploreRoute
+  '/u/for-you': typeof UForYouRoute
+  '/u/impact': typeof UImpactRoute
   '/u': typeof UIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/join': typeof JoinRoute
+  '/u/buddy': typeof UBuddyRoute
+  '/u/events': typeof UEventsRoute
+  '/u/explore': typeof UExploreRoute
+  '/u/for-you': typeof UForYouRoute
+  '/u/impact': typeof UImpactRoute
   '/u/': typeof UIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/join' | '/u/'
+  fullPaths:
+    | '/'
+    | '/join'
+    | '/u/buddy'
+    | '/u/events'
+    | '/u/explore'
+    | '/u/for-you'
+    | '/u/impact'
+    | '/u/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/join' | '/u'
-  id: '__root__' | '/' | '/join' | '/u/'
+  to:
+    | '/'
+    | '/join'
+    | '/u/buddy'
+    | '/u/events'
+    | '/u/explore'
+    | '/u/for-you'
+    | '/u/impact'
+    | '/u'
+  id:
+    | '__root__'
+    | '/'
+    | '/join'
+    | '/u/buddy'
+    | '/u/events'
+    | '/u/explore'
+    | '/u/for-you'
+    | '/u/impact'
+    | '/u/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   JoinRoute: typeof JoinRoute
+  UBuddyRoute: typeof UBuddyRoute
+  UEventsRoute: typeof UEventsRoute
+  UExploreRoute: typeof UExploreRoute
+  UForYouRoute: typeof UForYouRoute
+  UImpactRoute: typeof UImpactRoute
   UIndexRoute: typeof UIndexRoute
 }
 
@@ -82,12 +157,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/u/impact': {
+      id: '/u/impact'
+      path: '/u/impact'
+      fullPath: '/u/impact'
+      preLoaderRoute: typeof UImpactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/u/for-you': {
+      id: '/u/for-you'
+      path: '/u/for-you'
+      fullPath: '/u/for-you'
+      preLoaderRoute: typeof UForYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/u/explore': {
+      id: '/u/explore'
+      path: '/u/explore'
+      fullPath: '/u/explore'
+      preLoaderRoute: typeof UExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/u/events': {
+      id: '/u/events'
+      path: '/u/events'
+      fullPath: '/u/events'
+      preLoaderRoute: typeof UEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/u/buddy': {
+      id: '/u/buddy'
+      path: '/u/buddy'
+      fullPath: '/u/buddy'
+      preLoaderRoute: typeof UBuddyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   JoinRoute: JoinRoute,
+  UBuddyRoute: UBuddyRoute,
+  UEventsRoute: UEventsRoute,
+  UExploreRoute: UExploreRoute,
+  UForYouRoute: UForYouRoute,
+  UImpactRoute: UImpactRoute,
   UIndexRoute: UIndexRoute,
 }
 export const routeTree = rootRouteImport
