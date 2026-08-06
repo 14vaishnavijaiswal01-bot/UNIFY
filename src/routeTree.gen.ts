@@ -9,26 +9,37 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as EventsRouteImport } from './routes/events'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as JoinRouteImport } from './routes/join'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthenticatedManagerRouteImport } from './routes/_authenticated/manager'
-import { Route as AuthenticatedCorporateRouteImport } from './routes/_authenticated/corporate'
-import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
+import { Route as UIndexRouteImport } from './routes/u.index'
+import { Route as EmIndexRouteImport } from './routes/em.index'
+import { Route as CsrIndexRouteImport } from './routes/csr.index'
+import { Route as UImpactRouteImport } from './routes/u.impact'
+import { Route as UForYouRouteImport } from './routes/u.for-you'
+import { Route as UExploreRouteImport } from './routes/u.explore'
+import { Route as UEventsRouteImport } from './routes/u.events'
+import { Route as UBuddyRouteImport } from './routes/u.buddy'
+import { Route as EventIdRouteImport } from './routes/event.$id'
+import { Route as EmRevenueRouteImport } from './routes/em.revenue'
+import { Route as EmPortfolioRouteImport } from './routes/em.portfolio'
+import { Route as EmOpportunitiesRouteImport } from './routes/em.opportunities'
+import { Route as EmEventsRouteImport } from './routes/em.events'
+import { Route as CsrReportsRouteImport } from './routes/csr.reports'
+import { Route as CsrPartnershipsRouteImport } from './routes/csr.partnerships'
+import { Route as CsrDiscoverRouteImport } from './routes/csr.discover'
+import { Route as CsrCreateRouteImport } from './routes/csr.create'
+import { Route as CsrManagersIndexRouteImport } from './routes/csr.managers.index'
+import { Route as CsrManagersIdRouteImport } from './routes/csr.managers.$id'
 
-const EventsRoute = EventsRouteImport.update({
-  id: '/events',
-  path: '/events',
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
+const JoinRoute = JoinRouteImport.update({
+  id: '/join',
+  path: '/join',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -36,92 +47,289 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedManagerRoute = AuthenticatedManagerRouteImport.update({
-  id: '/manager',
-  path: '/manager',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const UIndexRoute = UIndexRouteImport.update({
+  id: '/u/',
+  path: '/u/',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedCorporateRoute = AuthenticatedCorporateRouteImport.update({
-  id: '/corporate',
-  path: '/corporate',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const EmIndexRoute = EmIndexRouteImport.update({
+  id: '/em/',
+  path: '/em/',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedAppRoute = AuthenticatedAppRouteImport.update({
-  id: '/app',
-  path: '/app',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const CsrIndexRoute = CsrIndexRouteImport.update({
+  id: '/csr/',
+  path: '/csr/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UImpactRoute = UImpactRouteImport.update({
+  id: '/u/impact',
+  path: '/u/impact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UForYouRoute = UForYouRouteImport.update({
+  id: '/u/for-you',
+  path: '/u/for-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UExploreRoute = UExploreRouteImport.update({
+  id: '/u/explore',
+  path: '/u/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UEventsRoute = UEventsRouteImport.update({
+  id: '/u/events',
+  path: '/u/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UBuddyRoute = UBuddyRouteImport.update({
+  id: '/u/buddy',
+  path: '/u/buddy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventIdRoute = EventIdRouteImport.update({
+  id: '/event/$id',
+  path: '/event/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmRevenueRoute = EmRevenueRouteImport.update({
+  id: '/em/revenue',
+  path: '/em/revenue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmPortfolioRoute = EmPortfolioRouteImport.update({
+  id: '/em/portfolio',
+  path: '/em/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmOpportunitiesRoute = EmOpportunitiesRouteImport.update({
+  id: '/em/opportunities',
+  path: '/em/opportunities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmEventsRoute = EmEventsRouteImport.update({
+  id: '/em/events',
+  path: '/em/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrReportsRoute = CsrReportsRouteImport.update({
+  id: '/csr/reports',
+  path: '/csr/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrPartnershipsRoute = CsrPartnershipsRouteImport.update({
+  id: '/csr/partnerships',
+  path: '/csr/partnerships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrDiscoverRoute = CsrDiscoverRouteImport.update({
+  id: '/csr/discover',
+  path: '/csr/discover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrCreateRoute = CsrCreateRouteImport.update({
+  id: '/csr/create',
+  path: '/csr/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrManagersIndexRoute = CsrManagersIndexRouteImport.update({
+  id: '/csr/managers/',
+  path: '/csr/managers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrManagersIdRoute = CsrManagersIdRouteImport.update({
+  id: '/csr/managers/$id',
+  path: '/csr/managers/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/events': typeof EventsRoute
-  '/app': typeof AuthenticatedAppRoute
-  '/corporate': typeof AuthenticatedCorporateRoute
-  '/manager': typeof AuthenticatedManagerRoute
+  '/join': typeof JoinRoute
+  '/profile': typeof ProfileRoute
+  '/csr/create': typeof CsrCreateRoute
+  '/csr/discover': typeof CsrDiscoverRoute
+  '/csr/partnerships': typeof CsrPartnershipsRoute
+  '/csr/reports': typeof CsrReportsRoute
+  '/em/events': typeof EmEventsRoute
+  '/em/opportunities': typeof EmOpportunitiesRoute
+  '/em/portfolio': typeof EmPortfolioRoute
+  '/em/revenue': typeof EmRevenueRoute
+  '/event/$id': typeof EventIdRoute
+  '/u/buddy': typeof UBuddyRoute
+  '/u/events': typeof UEventsRoute
+  '/u/explore': typeof UExploreRoute
+  '/u/for-you': typeof UForYouRoute
+  '/u/impact': typeof UImpactRoute
+  '/csr/': typeof CsrIndexRoute
+  '/em/': typeof EmIndexRoute
+  '/u/': typeof UIndexRoute
+  '/csr/managers/$id': typeof CsrManagersIdRoute
+  '/csr/managers/': typeof CsrManagersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/events': typeof EventsRoute
-  '/app': typeof AuthenticatedAppRoute
-  '/corporate': typeof AuthenticatedCorporateRoute
-  '/manager': typeof AuthenticatedManagerRoute
+  '/join': typeof JoinRoute
+  '/profile': typeof ProfileRoute
+  '/csr/create': typeof CsrCreateRoute
+  '/csr/discover': typeof CsrDiscoverRoute
+  '/csr/partnerships': typeof CsrPartnershipsRoute
+  '/csr/reports': typeof CsrReportsRoute
+  '/em/events': typeof EmEventsRoute
+  '/em/opportunities': typeof EmOpportunitiesRoute
+  '/em/portfolio': typeof EmPortfolioRoute
+  '/em/revenue': typeof EmRevenueRoute
+  '/event/$id': typeof EventIdRoute
+  '/u/buddy': typeof UBuddyRoute
+  '/u/events': typeof UEventsRoute
+  '/u/explore': typeof UExploreRoute
+  '/u/for-you': typeof UForYouRoute
+  '/u/impact': typeof UImpactRoute
+  '/csr': typeof CsrIndexRoute
+  '/em': typeof EmIndexRoute
+  '/u': typeof UIndexRoute
+  '/csr/managers/$id': typeof CsrManagersIdRoute
+  '/csr/managers': typeof CsrManagersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
-  '/auth': typeof AuthRoute
-  '/events': typeof EventsRoute
-  '/_authenticated/app': typeof AuthenticatedAppRoute
-  '/_authenticated/corporate': typeof AuthenticatedCorporateRoute
-  '/_authenticated/manager': typeof AuthenticatedManagerRoute
+  '/join': typeof JoinRoute
+  '/profile': typeof ProfileRoute
+  '/csr/create': typeof CsrCreateRoute
+  '/csr/discover': typeof CsrDiscoverRoute
+  '/csr/partnerships': typeof CsrPartnershipsRoute
+  '/csr/reports': typeof CsrReportsRoute
+  '/em/events': typeof EmEventsRoute
+  '/em/opportunities': typeof EmOpportunitiesRoute
+  '/em/portfolio': typeof EmPortfolioRoute
+  '/em/revenue': typeof EmRevenueRoute
+  '/event/$id': typeof EventIdRoute
+  '/u/buddy': typeof UBuddyRoute
+  '/u/events': typeof UEventsRoute
+  '/u/explore': typeof UExploreRoute
+  '/u/for-you': typeof UForYouRoute
+  '/u/impact': typeof UImpactRoute
+  '/csr/': typeof CsrIndexRoute
+  '/em/': typeof EmIndexRoute
+  '/u/': typeof UIndexRoute
+  '/csr/managers/$id': typeof CsrManagersIdRoute
+  '/csr/managers/': typeof CsrManagersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/events' | '/app' | '/corporate' | '/manager'
+  fullPaths:
+    | '/'
+    | '/join'
+    | '/profile'
+    | '/csr/create'
+    | '/csr/discover'
+    | '/csr/partnerships'
+    | '/csr/reports'
+    | '/em/events'
+    | '/em/opportunities'
+    | '/em/portfolio'
+    | '/em/revenue'
+    | '/event/$id'
+    | '/u/buddy'
+    | '/u/events'
+    | '/u/explore'
+    | '/u/for-you'
+    | '/u/impact'
+    | '/csr/'
+    | '/em/'
+    | '/u/'
+    | '/csr/managers/$id'
+    | '/csr/managers/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/events' | '/app' | '/corporate' | '/manager'
+  to:
+    | '/'
+    | '/join'
+    | '/profile'
+    | '/csr/create'
+    | '/csr/discover'
+    | '/csr/partnerships'
+    | '/csr/reports'
+    | '/em/events'
+    | '/em/opportunities'
+    | '/em/portfolio'
+    | '/em/revenue'
+    | '/event/$id'
+    | '/u/buddy'
+    | '/u/events'
+    | '/u/explore'
+    | '/u/for-you'
+    | '/u/impact'
+    | '/csr'
+    | '/em'
+    | '/u'
+    | '/csr/managers/$id'
+    | '/csr/managers'
   id:
     | '__root__'
     | '/'
-    | '/_authenticated'
-    | '/auth'
-    | '/events'
-    | '/_authenticated/app'
-    | '/_authenticated/corporate'
-    | '/_authenticated/manager'
+    | '/join'
+    | '/profile'
+    | '/csr/create'
+    | '/csr/discover'
+    | '/csr/partnerships'
+    | '/csr/reports'
+    | '/em/events'
+    | '/em/opportunities'
+    | '/em/portfolio'
+    | '/em/revenue'
+    | '/event/$id'
+    | '/u/buddy'
+    | '/u/events'
+    | '/u/explore'
+    | '/u/for-you'
+    | '/u/impact'
+    | '/csr/'
+    | '/em/'
+    | '/u/'
+    | '/csr/managers/$id'
+    | '/csr/managers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
-  AuthRoute: typeof AuthRoute
-  EventsRoute: typeof EventsRoute
+  JoinRoute: typeof JoinRoute
+  ProfileRoute: typeof ProfileRoute
+  CsrCreateRoute: typeof CsrCreateRoute
+  CsrDiscoverRoute: typeof CsrDiscoverRoute
+  CsrPartnershipsRoute: typeof CsrPartnershipsRoute
+  CsrReportsRoute: typeof CsrReportsRoute
+  EmEventsRoute: typeof EmEventsRoute
+  EmOpportunitiesRoute: typeof EmOpportunitiesRoute
+  EmPortfolioRoute: typeof EmPortfolioRoute
+  EmRevenueRoute: typeof EmRevenueRoute
+  EventIdRoute: typeof EventIdRoute
+  UBuddyRoute: typeof UBuddyRoute
+  UEventsRoute: typeof UEventsRoute
+  UExploreRoute: typeof UExploreRoute
+  UForYouRoute: typeof UForYouRoute
+  UImpactRoute: typeof UImpactRoute
+  CsrIndexRoute: typeof CsrIndexRoute
+  EmIndexRoute: typeof EmIndexRoute
+  UIndexRoute: typeof UIndexRoute
+  CsrManagersIdRoute: typeof CsrManagersIdRoute
+  CsrManagersIndexRoute: typeof CsrManagersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/events': {
-      id: '/events'
-      path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof EventsRouteImport
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated': {
-      id: '/_authenticated'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+    '/join': {
+      id: '/join'
+      path: '/join'
+      fullPath: '/join'
+      preLoaderRoute: typeof JoinRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -131,50 +339,165 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/manager': {
-      id: '/_authenticated/manager'
-      path: '/manager'
-      fullPath: '/manager'
-      preLoaderRoute: typeof AuthenticatedManagerRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+    '/u/': {
+      id: '/u/'
+      path: '/u'
+      fullPath: '/u/'
+      preLoaderRoute: typeof UIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/corporate': {
-      id: '/_authenticated/corporate'
-      path: '/corporate'
-      fullPath: '/corporate'
-      preLoaderRoute: typeof AuthenticatedCorporateRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+    '/em/': {
+      id: '/em/'
+      path: '/em'
+      fullPath: '/em/'
+      preLoaderRoute: typeof EmIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/app': {
-      id: '/_authenticated/app'
-      path: '/app'
-      fullPath: '/app'
-      preLoaderRoute: typeof AuthenticatedAppRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+    '/csr/': {
+      id: '/csr/'
+      path: '/csr'
+      fullPath: '/csr/'
+      preLoaderRoute: typeof CsrIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/u/impact': {
+      id: '/u/impact'
+      path: '/u/impact'
+      fullPath: '/u/impact'
+      preLoaderRoute: typeof UImpactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/u/for-you': {
+      id: '/u/for-you'
+      path: '/u/for-you'
+      fullPath: '/u/for-you'
+      preLoaderRoute: typeof UForYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/u/explore': {
+      id: '/u/explore'
+      path: '/u/explore'
+      fullPath: '/u/explore'
+      preLoaderRoute: typeof UExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/u/events': {
+      id: '/u/events'
+      path: '/u/events'
+      fullPath: '/u/events'
+      preLoaderRoute: typeof UEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/u/buddy': {
+      id: '/u/buddy'
+      path: '/u/buddy'
+      fullPath: '/u/buddy'
+      preLoaderRoute: typeof UBuddyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/event/$id': {
+      id: '/event/$id'
+      path: '/event/$id'
+      fullPath: '/event/$id'
+      preLoaderRoute: typeof EventIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/em/revenue': {
+      id: '/em/revenue'
+      path: '/em/revenue'
+      fullPath: '/em/revenue'
+      preLoaderRoute: typeof EmRevenueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/em/portfolio': {
+      id: '/em/portfolio'
+      path: '/em/portfolio'
+      fullPath: '/em/portfolio'
+      preLoaderRoute: typeof EmPortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/em/opportunities': {
+      id: '/em/opportunities'
+      path: '/em/opportunities'
+      fullPath: '/em/opportunities'
+      preLoaderRoute: typeof EmOpportunitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/em/events': {
+      id: '/em/events'
+      path: '/em/events'
+      fullPath: '/em/events'
+      preLoaderRoute: typeof EmEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/reports': {
+      id: '/csr/reports'
+      path: '/csr/reports'
+      fullPath: '/csr/reports'
+      preLoaderRoute: typeof CsrReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/partnerships': {
+      id: '/csr/partnerships'
+      path: '/csr/partnerships'
+      fullPath: '/csr/partnerships'
+      preLoaderRoute: typeof CsrPartnershipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/discover': {
+      id: '/csr/discover'
+      path: '/csr/discover'
+      fullPath: '/csr/discover'
+      preLoaderRoute: typeof CsrDiscoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/create': {
+      id: '/csr/create'
+      path: '/csr/create'
+      fullPath: '/csr/create'
+      preLoaderRoute: typeof CsrCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/managers/': {
+      id: '/csr/managers/'
+      path: '/csr/managers'
+      fullPath: '/csr/managers/'
+      preLoaderRoute: typeof CsrManagersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/managers/$id': {
+      id: '/csr/managers/$id'
+      path: '/csr/managers/$id'
+      fullPath: '/csr/managers/$id'
+      preLoaderRoute: typeof CsrManagersIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface AuthenticatedRouteRouteChildren {
-  AuthenticatedAppRoute: typeof AuthenticatedAppRoute
-  AuthenticatedCorporateRoute: typeof AuthenticatedCorporateRoute
-  AuthenticatedManagerRoute: typeof AuthenticatedManagerRoute
-}
-
-const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedAppRoute: AuthenticatedAppRoute,
-  AuthenticatedCorporateRoute: AuthenticatedCorporateRoute,
-  AuthenticatedManagerRoute: AuthenticatedManagerRoute,
-}
-
-const AuthenticatedRouteRouteWithChildren =
-  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
-  AuthRoute: AuthRoute,
-  EventsRoute: EventsRoute,
+  JoinRoute: JoinRoute,
+  ProfileRoute: ProfileRoute,
+  CsrCreateRoute: CsrCreateRoute,
+  CsrDiscoverRoute: CsrDiscoverRoute,
+  CsrPartnershipsRoute: CsrPartnershipsRoute,
+  CsrReportsRoute: CsrReportsRoute,
+  EmEventsRoute: EmEventsRoute,
+  EmOpportunitiesRoute: EmOpportunitiesRoute,
+  EmPortfolioRoute: EmPortfolioRoute,
+  EmRevenueRoute: EmRevenueRoute,
+  EventIdRoute: EventIdRoute,
+  UBuddyRoute: UBuddyRoute,
+  UEventsRoute: UEventsRoute,
+  UExploreRoute: UExploreRoute,
+  UForYouRoute: UForYouRoute,
+  UImpactRoute: UImpactRoute,
+  CsrIndexRoute: CsrIndexRoute,
+  EmIndexRoute: EmIndexRoute,
+  UIndexRoute: UIndexRoute,
+  CsrManagersIdRoute: CsrManagersIdRoute,
+  CsrManagersIndexRoute: CsrManagersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
