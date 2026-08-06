@@ -9,9 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UIndexRouteImport } from './routes/u.index'
+import { Route as EmIndexRouteImport } from './routes/em.index'
 import { Route as CsrIndexRouteImport } from './routes/csr.index'
 import { Route as UImpactRouteImport } from './routes/u.impact'
 import { Route as UForYouRouteImport } from './routes/u.for-you'
@@ -19,6 +21,10 @@ import { Route as UExploreRouteImport } from './routes/u.explore'
 import { Route as UEventsRouteImport } from './routes/u.events'
 import { Route as UBuddyRouteImport } from './routes/u.buddy'
 import { Route as EventIdRouteImport } from './routes/event.$id'
+import { Route as EmRevenueRouteImport } from './routes/em.revenue'
+import { Route as EmPortfolioRouteImport } from './routes/em.portfolio'
+import { Route as EmOpportunitiesRouteImport } from './routes/em.opportunities'
+import { Route as EmEventsRouteImport } from './routes/em.events'
 import { Route as CsrReportsRouteImport } from './routes/csr.reports'
 import { Route as CsrPartnershipsRouteImport } from './routes/csr.partnerships'
 import { Route as CsrDiscoverRouteImport } from './routes/csr.discover'
@@ -26,6 +32,11 @@ import { Route as CsrCreateRouteImport } from './routes/csr.create'
 import { Route as CsrManagersIndexRouteImport } from './routes/csr.managers.index'
 import { Route as CsrManagersIdRouteImport } from './routes/csr.managers.$id'
 
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JoinRoute = JoinRouteImport.update({
   id: '/join',
   path: '/join',
@@ -39,6 +50,11 @@ const IndexRoute = IndexRouteImport.update({
 const UIndexRoute = UIndexRouteImport.update({
   id: '/u/',
   path: '/u/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmIndexRoute = EmIndexRouteImport.update({
+  id: '/em/',
+  path: '/em/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CsrIndexRoute = CsrIndexRouteImport.update({
@@ -76,6 +92,26 @@ const EventIdRoute = EventIdRouteImport.update({
   path: '/event/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmRevenueRoute = EmRevenueRouteImport.update({
+  id: '/em/revenue',
+  path: '/em/revenue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmPortfolioRoute = EmPortfolioRouteImport.update({
+  id: '/em/portfolio',
+  path: '/em/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmOpportunitiesRoute = EmOpportunitiesRouteImport.update({
+  id: '/em/opportunities',
+  path: '/em/opportunities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmEventsRoute = EmEventsRouteImport.update({
+  id: '/em/events',
+  path: '/em/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CsrReportsRoute = CsrReportsRouteImport.update({
   id: '/csr/reports',
   path: '/csr/reports',
@@ -110,10 +146,15 @@ const CsrManagersIdRoute = CsrManagersIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/join': typeof JoinRoute
+  '/profile': typeof ProfileRoute
   '/csr/create': typeof CsrCreateRoute
   '/csr/discover': typeof CsrDiscoverRoute
   '/csr/partnerships': typeof CsrPartnershipsRoute
   '/csr/reports': typeof CsrReportsRoute
+  '/em/events': typeof EmEventsRoute
+  '/em/opportunities': typeof EmOpportunitiesRoute
+  '/em/portfolio': typeof EmPortfolioRoute
+  '/em/revenue': typeof EmRevenueRoute
   '/event/$id': typeof EventIdRoute
   '/u/buddy': typeof UBuddyRoute
   '/u/events': typeof UEventsRoute
@@ -121,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/u/for-you': typeof UForYouRoute
   '/u/impact': typeof UImpactRoute
   '/csr/': typeof CsrIndexRoute
+  '/em/': typeof EmIndexRoute
   '/u/': typeof UIndexRoute
   '/csr/managers/$id': typeof CsrManagersIdRoute
   '/csr/managers/': typeof CsrManagersIndexRoute
@@ -128,10 +170,15 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/join': typeof JoinRoute
+  '/profile': typeof ProfileRoute
   '/csr/create': typeof CsrCreateRoute
   '/csr/discover': typeof CsrDiscoverRoute
   '/csr/partnerships': typeof CsrPartnershipsRoute
   '/csr/reports': typeof CsrReportsRoute
+  '/em/events': typeof EmEventsRoute
+  '/em/opportunities': typeof EmOpportunitiesRoute
+  '/em/portfolio': typeof EmPortfolioRoute
+  '/em/revenue': typeof EmRevenueRoute
   '/event/$id': typeof EventIdRoute
   '/u/buddy': typeof UBuddyRoute
   '/u/events': typeof UEventsRoute
@@ -139,6 +186,7 @@ export interface FileRoutesByTo {
   '/u/for-you': typeof UForYouRoute
   '/u/impact': typeof UImpactRoute
   '/csr': typeof CsrIndexRoute
+  '/em': typeof EmIndexRoute
   '/u': typeof UIndexRoute
   '/csr/managers/$id': typeof CsrManagersIdRoute
   '/csr/managers': typeof CsrManagersIndexRoute
@@ -147,10 +195,15 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/join': typeof JoinRoute
+  '/profile': typeof ProfileRoute
   '/csr/create': typeof CsrCreateRoute
   '/csr/discover': typeof CsrDiscoverRoute
   '/csr/partnerships': typeof CsrPartnershipsRoute
   '/csr/reports': typeof CsrReportsRoute
+  '/em/events': typeof EmEventsRoute
+  '/em/opportunities': typeof EmOpportunitiesRoute
+  '/em/portfolio': typeof EmPortfolioRoute
+  '/em/revenue': typeof EmRevenueRoute
   '/event/$id': typeof EventIdRoute
   '/u/buddy': typeof UBuddyRoute
   '/u/events': typeof UEventsRoute
@@ -158,6 +211,7 @@ export interface FileRoutesById {
   '/u/for-you': typeof UForYouRoute
   '/u/impact': typeof UImpactRoute
   '/csr/': typeof CsrIndexRoute
+  '/em/': typeof EmIndexRoute
   '/u/': typeof UIndexRoute
   '/csr/managers/$id': typeof CsrManagersIdRoute
   '/csr/managers/': typeof CsrManagersIndexRoute
@@ -167,10 +221,15 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/join'
+    | '/profile'
     | '/csr/create'
     | '/csr/discover'
     | '/csr/partnerships'
     | '/csr/reports'
+    | '/em/events'
+    | '/em/opportunities'
+    | '/em/portfolio'
+    | '/em/revenue'
     | '/event/$id'
     | '/u/buddy'
     | '/u/events'
@@ -178,6 +237,7 @@ export interface FileRouteTypes {
     | '/u/for-you'
     | '/u/impact'
     | '/csr/'
+    | '/em/'
     | '/u/'
     | '/csr/managers/$id'
     | '/csr/managers/'
@@ -185,10 +245,15 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/join'
+    | '/profile'
     | '/csr/create'
     | '/csr/discover'
     | '/csr/partnerships'
     | '/csr/reports'
+    | '/em/events'
+    | '/em/opportunities'
+    | '/em/portfolio'
+    | '/em/revenue'
     | '/event/$id'
     | '/u/buddy'
     | '/u/events'
@@ -196,6 +261,7 @@ export interface FileRouteTypes {
     | '/u/for-you'
     | '/u/impact'
     | '/csr'
+    | '/em'
     | '/u'
     | '/csr/managers/$id'
     | '/csr/managers'
@@ -203,10 +269,15 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/join'
+    | '/profile'
     | '/csr/create'
     | '/csr/discover'
     | '/csr/partnerships'
     | '/csr/reports'
+    | '/em/events'
+    | '/em/opportunities'
+    | '/em/portfolio'
+    | '/em/revenue'
     | '/event/$id'
     | '/u/buddy'
     | '/u/events'
@@ -214,6 +285,7 @@ export interface FileRouteTypes {
     | '/u/for-you'
     | '/u/impact'
     | '/csr/'
+    | '/em/'
     | '/u/'
     | '/csr/managers/$id'
     | '/csr/managers/'
@@ -222,10 +294,15 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   JoinRoute: typeof JoinRoute
+  ProfileRoute: typeof ProfileRoute
   CsrCreateRoute: typeof CsrCreateRoute
   CsrDiscoverRoute: typeof CsrDiscoverRoute
   CsrPartnershipsRoute: typeof CsrPartnershipsRoute
   CsrReportsRoute: typeof CsrReportsRoute
+  EmEventsRoute: typeof EmEventsRoute
+  EmOpportunitiesRoute: typeof EmOpportunitiesRoute
+  EmPortfolioRoute: typeof EmPortfolioRoute
+  EmRevenueRoute: typeof EmRevenueRoute
   EventIdRoute: typeof EventIdRoute
   UBuddyRoute: typeof UBuddyRoute
   UEventsRoute: typeof UEventsRoute
@@ -233,6 +310,7 @@ export interface RootRouteChildren {
   UForYouRoute: typeof UForYouRoute
   UImpactRoute: typeof UImpactRoute
   CsrIndexRoute: typeof CsrIndexRoute
+  EmIndexRoute: typeof EmIndexRoute
   UIndexRoute: typeof UIndexRoute
   CsrManagersIdRoute: typeof CsrManagersIdRoute
   CsrManagersIndexRoute: typeof CsrManagersIndexRoute
@@ -240,6 +318,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/join': {
       id: '/join'
       path: '/join'
@@ -259,6 +344,13 @@ declare module '@tanstack/react-router' {
       path: '/u'
       fullPath: '/u/'
       preLoaderRoute: typeof UIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/em/': {
+      id: '/em/'
+      path: '/em'
+      fullPath: '/em/'
+      preLoaderRoute: typeof EmIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/csr/': {
@@ -310,6 +402,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/em/revenue': {
+      id: '/em/revenue'
+      path: '/em/revenue'
+      fullPath: '/em/revenue'
+      preLoaderRoute: typeof EmRevenueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/em/portfolio': {
+      id: '/em/portfolio'
+      path: '/em/portfolio'
+      fullPath: '/em/portfolio'
+      preLoaderRoute: typeof EmPortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/em/opportunities': {
+      id: '/em/opportunities'
+      path: '/em/opportunities'
+      fullPath: '/em/opportunities'
+      preLoaderRoute: typeof EmOpportunitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/em/events': {
+      id: '/em/events'
+      path: '/em/events'
+      fullPath: '/em/events'
+      preLoaderRoute: typeof EmEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/csr/reports': {
       id: '/csr/reports'
       path: '/csr/reports'
@@ -358,10 +478,15 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   JoinRoute: JoinRoute,
+  ProfileRoute: ProfileRoute,
   CsrCreateRoute: CsrCreateRoute,
   CsrDiscoverRoute: CsrDiscoverRoute,
   CsrPartnershipsRoute: CsrPartnershipsRoute,
   CsrReportsRoute: CsrReportsRoute,
+  EmEventsRoute: EmEventsRoute,
+  EmOpportunitiesRoute: EmOpportunitiesRoute,
+  EmPortfolioRoute: EmPortfolioRoute,
+  EmRevenueRoute: EmRevenueRoute,
   EventIdRoute: EventIdRoute,
   UBuddyRoute: UBuddyRoute,
   UEventsRoute: UEventsRoute,
@@ -369,6 +494,7 @@ const rootRouteChildren: RootRouteChildren = {
   UForYouRoute: UForYouRoute,
   UImpactRoute: UImpactRoute,
   CsrIndexRoute: CsrIndexRoute,
+  EmIndexRoute: EmIndexRoute,
   UIndexRoute: UIndexRoute,
   CsrManagersIdRoute: CsrManagersIdRoute,
   CsrManagersIndexRoute: CsrManagersIndexRoute,
@@ -376,3 +502,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

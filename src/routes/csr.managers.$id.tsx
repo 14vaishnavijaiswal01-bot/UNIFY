@@ -39,7 +39,7 @@ function ManagerProfilePage() {
           </div>
           <h2 className="font-display text-xl font-semibold mt-8">Portfolio</h2>
           <div className="mt-3 space-y-2">
-            {m.portfolio.map((p) => (
+            {m.portfolio.map((p: { title: string; scale: string }) => (
               <div key={p.title} className="rounded-xl bg-muted/60 p-3 text-sm flex justify-between"><span>{p.title}</span><Badge variant="secondary" className="text-[11px]">{p.scale}</Badge></div>
             ))}
           </div>
