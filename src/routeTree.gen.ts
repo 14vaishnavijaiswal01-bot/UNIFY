@@ -12,11 +12,19 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UIndexRouteImport } from './routes/u.index'
+import { Route as CsrIndexRouteImport } from './routes/csr.index'
 import { Route as UImpactRouteImport } from './routes/u.impact'
 import { Route as UForYouRouteImport } from './routes/u.for-you'
 import { Route as UExploreRouteImport } from './routes/u.explore'
 import { Route as UEventsRouteImport } from './routes/u.events'
 import { Route as UBuddyRouteImport } from './routes/u.buddy'
+import { Route as EventIdRouteImport } from './routes/event.$id'
+import { Route as CsrReportsRouteImport } from './routes/csr.reports'
+import { Route as CsrPartnershipsRouteImport } from './routes/csr.partnerships'
+import { Route as CsrDiscoverRouteImport } from './routes/csr.discover'
+import { Route as CsrCreateRouteImport } from './routes/csr.create'
+import { Route as CsrManagersIndexRouteImport } from './routes/csr.managers.index'
+import { Route as CsrManagersIdRouteImport } from './routes/csr.managers.$id'
 
 const JoinRoute = JoinRouteImport.update({
   id: '/join',
@@ -31,6 +39,11 @@ const IndexRoute = IndexRouteImport.update({
 const UIndexRoute = UIndexRouteImport.update({
   id: '/u/',
   path: '/u/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrIndexRoute = CsrIndexRouteImport.update({
+  id: '/csr/',
+  path: '/csr/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UImpactRoute = UImpactRouteImport.update({
@@ -58,80 +71,171 @@ const UBuddyRoute = UBuddyRouteImport.update({
   path: '/u/buddy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EventIdRoute = EventIdRouteImport.update({
+  id: '/event/$id',
+  path: '/event/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrReportsRoute = CsrReportsRouteImport.update({
+  id: '/csr/reports',
+  path: '/csr/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrPartnershipsRoute = CsrPartnershipsRouteImport.update({
+  id: '/csr/partnerships',
+  path: '/csr/partnerships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrDiscoverRoute = CsrDiscoverRouteImport.update({
+  id: '/csr/discover',
+  path: '/csr/discover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrCreateRoute = CsrCreateRouteImport.update({
+  id: '/csr/create',
+  path: '/csr/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrManagersIndexRoute = CsrManagersIndexRouteImport.update({
+  id: '/csr/managers/',
+  path: '/csr/managers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrManagersIdRoute = CsrManagersIdRouteImport.update({
+  id: '/csr/managers/$id',
+  path: '/csr/managers/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/join': typeof JoinRoute
+  '/csr/create': typeof CsrCreateRoute
+  '/csr/discover': typeof CsrDiscoverRoute
+  '/csr/partnerships': typeof CsrPartnershipsRoute
+  '/csr/reports': typeof CsrReportsRoute
+  '/event/$id': typeof EventIdRoute
   '/u/buddy': typeof UBuddyRoute
   '/u/events': typeof UEventsRoute
   '/u/explore': typeof UExploreRoute
   '/u/for-you': typeof UForYouRoute
   '/u/impact': typeof UImpactRoute
+  '/csr/': typeof CsrIndexRoute
   '/u/': typeof UIndexRoute
+  '/csr/managers/$id': typeof CsrManagersIdRoute
+  '/csr/managers/': typeof CsrManagersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/join': typeof JoinRoute
+  '/csr/create': typeof CsrCreateRoute
+  '/csr/discover': typeof CsrDiscoverRoute
+  '/csr/partnerships': typeof CsrPartnershipsRoute
+  '/csr/reports': typeof CsrReportsRoute
+  '/event/$id': typeof EventIdRoute
   '/u/buddy': typeof UBuddyRoute
   '/u/events': typeof UEventsRoute
   '/u/explore': typeof UExploreRoute
   '/u/for-you': typeof UForYouRoute
   '/u/impact': typeof UImpactRoute
+  '/csr': typeof CsrIndexRoute
   '/u': typeof UIndexRoute
+  '/csr/managers/$id': typeof CsrManagersIdRoute
+  '/csr/managers': typeof CsrManagersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/join': typeof JoinRoute
+  '/csr/create': typeof CsrCreateRoute
+  '/csr/discover': typeof CsrDiscoverRoute
+  '/csr/partnerships': typeof CsrPartnershipsRoute
+  '/csr/reports': typeof CsrReportsRoute
+  '/event/$id': typeof EventIdRoute
   '/u/buddy': typeof UBuddyRoute
   '/u/events': typeof UEventsRoute
   '/u/explore': typeof UExploreRoute
   '/u/for-you': typeof UForYouRoute
   '/u/impact': typeof UImpactRoute
+  '/csr/': typeof CsrIndexRoute
   '/u/': typeof UIndexRoute
+  '/csr/managers/$id': typeof CsrManagersIdRoute
+  '/csr/managers/': typeof CsrManagersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/join'
+    | '/csr/create'
+    | '/csr/discover'
+    | '/csr/partnerships'
+    | '/csr/reports'
+    | '/event/$id'
     | '/u/buddy'
     | '/u/events'
     | '/u/explore'
     | '/u/for-you'
     | '/u/impact'
+    | '/csr/'
     | '/u/'
+    | '/csr/managers/$id'
+    | '/csr/managers/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/join'
+    | '/csr/create'
+    | '/csr/discover'
+    | '/csr/partnerships'
+    | '/csr/reports'
+    | '/event/$id'
     | '/u/buddy'
     | '/u/events'
     | '/u/explore'
     | '/u/for-you'
     | '/u/impact'
+    | '/csr'
     | '/u'
+    | '/csr/managers/$id'
+    | '/csr/managers'
   id:
     | '__root__'
     | '/'
     | '/join'
+    | '/csr/create'
+    | '/csr/discover'
+    | '/csr/partnerships'
+    | '/csr/reports'
+    | '/event/$id'
     | '/u/buddy'
     | '/u/events'
     | '/u/explore'
     | '/u/for-you'
     | '/u/impact'
+    | '/csr/'
     | '/u/'
+    | '/csr/managers/$id'
+    | '/csr/managers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   JoinRoute: typeof JoinRoute
+  CsrCreateRoute: typeof CsrCreateRoute
+  CsrDiscoverRoute: typeof CsrDiscoverRoute
+  CsrPartnershipsRoute: typeof CsrPartnershipsRoute
+  CsrReportsRoute: typeof CsrReportsRoute
+  EventIdRoute: typeof EventIdRoute
   UBuddyRoute: typeof UBuddyRoute
   UEventsRoute: typeof UEventsRoute
   UExploreRoute: typeof UExploreRoute
   UForYouRoute: typeof UForYouRoute
   UImpactRoute: typeof UImpactRoute
+  CsrIndexRoute: typeof CsrIndexRoute
   UIndexRoute: typeof UIndexRoute
+  CsrManagersIdRoute: typeof CsrManagersIdRoute
+  CsrManagersIndexRoute: typeof CsrManagersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -155,6 +259,13 @@ declare module '@tanstack/react-router' {
       path: '/u'
       fullPath: '/u/'
       preLoaderRoute: typeof UIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/': {
+      id: '/csr/'
+      path: '/csr'
+      fullPath: '/csr/'
+      preLoaderRoute: typeof CsrIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/u/impact': {
@@ -192,18 +303,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UBuddyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/event/$id': {
+      id: '/event/$id'
+      path: '/event/$id'
+      fullPath: '/event/$id'
+      preLoaderRoute: typeof EventIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/reports': {
+      id: '/csr/reports'
+      path: '/csr/reports'
+      fullPath: '/csr/reports'
+      preLoaderRoute: typeof CsrReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/partnerships': {
+      id: '/csr/partnerships'
+      path: '/csr/partnerships'
+      fullPath: '/csr/partnerships'
+      preLoaderRoute: typeof CsrPartnershipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/discover': {
+      id: '/csr/discover'
+      path: '/csr/discover'
+      fullPath: '/csr/discover'
+      preLoaderRoute: typeof CsrDiscoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/create': {
+      id: '/csr/create'
+      path: '/csr/create'
+      fullPath: '/csr/create'
+      preLoaderRoute: typeof CsrCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/managers/': {
+      id: '/csr/managers/'
+      path: '/csr/managers'
+      fullPath: '/csr/managers/'
+      preLoaderRoute: typeof CsrManagersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr/managers/$id': {
+      id: '/csr/managers/$id'
+      path: '/csr/managers/$id'
+      fullPath: '/csr/managers/$id'
+      preLoaderRoute: typeof CsrManagersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   JoinRoute: JoinRoute,
+  CsrCreateRoute: CsrCreateRoute,
+  CsrDiscoverRoute: CsrDiscoverRoute,
+  CsrPartnershipsRoute: CsrPartnershipsRoute,
+  CsrReportsRoute: CsrReportsRoute,
+  EventIdRoute: EventIdRoute,
   UBuddyRoute: UBuddyRoute,
   UEventsRoute: UEventsRoute,
   UExploreRoute: UExploreRoute,
   UForYouRoute: UForYouRoute,
   UImpactRoute: UImpactRoute,
+  CsrIndexRoute: CsrIndexRoute,
   UIndexRoute: UIndexRoute,
+  CsrManagersIdRoute: CsrManagersIdRoute,
+  CsrManagersIndexRoute: CsrManagersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
